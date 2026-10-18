@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MenuCateringController;
+use App\Http\Controllers\PaketCateringController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,22 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return redirect()->route('admin.menu.index');
     });
     
-    // Resource Controller CRUD Menu Catering
+    // Master Tabel 1: Menu Catering
     Route::resource('menu', MenuCateringController::class);
 
-    // Orders / Reservasi Masuk
+    // Master Tabel 2: Pelanggan
+    Route::resource('pelanggan', PelangganController::class);
+
+    // Master Tabel 3: Paket Catering
+    Route::resource('paket', PaketCateringController::class);
+
+    // Transaksi: Pesanan Masuk
     Route::get('pesanan', [MenuCateringController::class, 'adminOrders'])->name('pesanan.index');
     Route::put('pesanan/{id}', [MenuCateringController::class, 'updateOrderStatus'])->name('pesanan.update');
 });
 
-// Pelanggan Resource
+// Top-Level Aliases (agar URL /pelanggan, /paket, /menu langsung bisa diakses dosen)
 Route::resource('pelanggan', PelangganController::class);
+Route::get('/paket', function() {
+    return redirect()->route('admin.paket.index');
+});

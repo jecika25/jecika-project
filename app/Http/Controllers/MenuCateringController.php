@@ -244,8 +244,9 @@ class MenuCateringController extends Controller
 
         $selectedCategory = $request->get('kategori', 'all');
         $search = $request->get('q', '');
+        $pakets = \App\Models\PaketCatering::where('status', '!=', 'Nonaktif')->take(4)->get();
 
-        return view('guest.menu', compact('menus', 'categories', 'selectedCategory', 'search'));
+        return view('guest.menu', compact('menus', 'categories', 'selectedCategory', 'search', 'pakets'));
     }
 
     /**

@@ -132,31 +132,33 @@
                 </a>
             </li>
 
-            <!-- Manajemen Menu Catering -->
+            <li class="nav-header">Master Data (3 Tabel)</li>
+
+            <!-- Master 1: Menu Catering -->
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.menu.index') ? 'active' : '' }}" href="{{ route('admin.menu.index') }}">
+                <a class="nav-link {{ request()->routeIs('admin.menu.*') ? 'active' : '' }}" href="{{ route('admin.menu.index') }}">
                     <i class="ti ti-tools-kitchen-2"></i>
-                    <span class="nav-text">Menu Catering</span>
+                    <span class="nav-text">1. Menu Catering</span>
                 </a>
             </li>
 
-            <!-- Tambah Menu Baru -->
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.menu.create') ? 'active' : '' }}" href="{{ route('admin.menu.create') }}">
-                    <i class="ti ti-circle-plus"></i>
-                    <span class="nav-text">Tambah Menu</span>
-                </a>
-            </li>
-
-            <li class="nav-header">Manajemen Data</li>
-
-            <!-- Pelanggan -->
+            <!-- Master 2: Pelanggan -->
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}" href="{{ route('pelanggan.index') }}">
                     <i class="ti ti-users"></i>
-                    <span class="nav-text">Data Pelanggan</span>
+                    <span class="nav-text">2. Data Pelanggan</span>
                 </a>
             </li>
+
+            <!-- Master 3: Paket Catering -->
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.paket.*') ? 'active' : '' }}" href="{{ route('admin.paket.index') }}">
+                    <i class="ti ti-box"></i>
+                    <span class="nav-text">3. Paket Catering</span>
+                </a>
+            </li>
+
+            <li class="nav-header">Transaksi & Reservasi</li>
 
             <!-- Pesanan Masuk -->
             <li class="nav-item">
