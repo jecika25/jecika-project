@@ -182,6 +182,61 @@
     </div>
 </div>
 
+@if(isset($pakets) && $pakets->count() > 0)
+<!-- SECTION PAKET CATERING MASTER -->
+<div id="fh5co-featured" style="padding: 70px 0; background: #fff;">
+    <div class="container">
+        <div class="row text-center fh5co-heading" style="margin-bottom: 35px;">
+            <div class="col-md-8 col-md-offset-2">
+                <span class="badge-cat">Paket Lengkap Praktis</span>
+                <h2 class="heading" style="margin-top: 5px; font-size: 34px;">Paket Catering Pilihan</h2>
+                <p class="sub-heading" style="color: #777;">
+                    Solusi hemat dan praktis untuk prasmanan pernikahan, nasi box kantor, tumpeng syukuran, dan coffee break.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach($pakets as $p)
+                <div class="col-md-6 col-lg-3" style="margin-bottom: 30px;">
+                    <div style="background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+                        <div style="position: relative; height: 180px; overflow: hidden;">
+                            <img src="{{ $p->foto_url }}" alt="{{ $p->nama_paket }}" style="width: 100%; height: 100%; object-fit: cover;">
+                            <span style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.7); color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;">
+                                {{ $p->jenis_paket }}
+                            </span>
+                        </div>
+                        <div style="padding: 20px; flex: 1; display: flex; flex-direction: column;">
+                            <h4 style="font-size: 17px; font-weight: 700; color: #222; margin-top: 0; margin-bottom: 8px;">
+                                {{ $p->nama_paket }}
+                            </h4>
+                            <div style="color: #fb6e14; font-size: 18px; font-weight: 700; margin-bottom: 10px;">
+                                {{ $p->formatted_harga }}
+                                <small style="font-size: 12px; color: #888; font-weight: normal;">/ porsi</small>
+                            </div>
+                            <p style="font-size: 13px; color: #666; line-height: 1.6; flex: 1; margin-bottom: 15px;">
+                                {{ Str::limit($p->deskripsi, 90) }}
+                            </p>
+                            @if($p->fasilitas)
+                                <div style="background: #fdf5ef; padding: 8px 10px; border-radius: 6px; font-size: 11px; color: #c05309; margin-bottom: 15px;">
+                                    <i class="icon-check"></i> {{ Str::limit($p->fasilitas, 50) }}
+                                </div>
+                            @endif
+                            <button type="button" 
+                                    class="btn-primary-catering" 
+                                    style="width: 100%; text-align: center; border: none; padding: 10px 0; font-size: 13px;"
+                                    onclick="openOrderModal('{{ $p->id }}', '{{ addslashes($p->nama_paket) }}', '{{ $p->harga_paket }}', '{{ $p->minimal_porsi }}', '{{ $p->foto_url }}')">
+                                <i class="icon-basket"></i> Pesan Paket Ini
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endif
+
 <!-- CALL TO ACTION / RESERVASI -->
 <div id="fh5co-contact" data-section="reservation" style="background: url('{{ asset('assets-guest/images/slide_2.jpg') }}') center center no-repeat; background-size: cover; position: relative; padding: 80px 0;">
     <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7);"></div>
