@@ -137,7 +137,7 @@
                 </a>
             </li>
 
-            <li class="nav-header">Master Data (3 Tabel)</li>
+            <li class="nav-header">Master Data</li>
 
             <!-- Master 1: Menu Catering -->
             <li class="nav-item">
@@ -160,6 +160,14 @@
                 <a class="nav-link {{ request()->routeIs('admin.paket.*') ? 'active' : '' }}" href="{{ route('admin.paket.index') }}">
                     <i class="ti ti-box"></i>
                     <span class="nav-text">3. Paket Catering</span>
+                </a>
+            </li>
+
+            <!-- Master 4: Data User (Modul Pertemuan 7) -->
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->routeIs('user.*') || request()->routeIs('admin.user.*')) ? 'active' : '' }}" href="{{ route('user.index') }}">
+                    <i class="ti ti-user-shield"></i>
+                    <span class="nav-text">4. Data User</span>
                 </a>
             </li>
 

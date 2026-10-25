@@ -19,25 +19,25 @@
             <li class="nav-header">Menu Utama</li>
 
             <!-- Dashboard -->
-            <li class="nav-item {{ request()->routeIs('dashboard.*') ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('admin') && !request()->is('admin/*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.menu.index') }}">
                     <i class="ti ti-dashboard"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
 
-            <li class="nav-header">Master Data (3 Tabel)</li>
+            <li class="nav-header">Master Data</li>
 
             <!-- Master 1: Menu Catering -->
-            <li class="nav-item {{ request()->routeIs('admin.menu.*') ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->routeIs('admin.menu.*') || request()->routeIs('menu.*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.menu.index') }}">
                     <i class="ti ti-tools-kitchen-2"></i>
                     <span class="nav-text">1. Menu Catering</span>
                 </a>
             </li>
 
-            <!-- Master 2: Pelanggan -->
-            <li class="nav-item {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}">
+            <!-- Master 2: Pelanggan (Pertemuan 6 & 7) -->
+            <li class="nav-item {{ (request()->routeIs('pelanggan.*') || request()->routeIs('admin.pelanggan.*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('pelanggan.index') }}">
                     <i class="ti ti-users"></i>
                     <span class="nav-text">2. Data Pelanggan</span>
@@ -45,17 +45,25 @@
             </li>
 
             <!-- Master 3: Paket Catering -->
-           <li class="nav-item {{ request()->routeIs('admin.paket.*') ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->routeIs('admin.paket.*') || request()->routeIs('paket.*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.paket.index') }}">
                     <i class="ti ti-box"></i>
                     <span class="nav-text">3. Paket Catering</span>
                 </a>
             </li>
 
+            <!-- Master 4: Data User (Modul Pertemuan 7) -->
+            <li class="nav-item {{ (request()->routeIs('user.*') || request()->routeIs('admin.user.*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="ti ti-user-shield"></i>
+                    <span class="nav-text">4. Data User</span>
+                </a>
+            </li>
+
             <li class="nav-header">Transaksi & Reservasi</li>
 
             <!-- Pesanan Masuk -->
-            <li class="nav-item {{ request()->routeIs('admin.pesanan.*') ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->routeIs('admin.pesanan.*') || request()->routeIs('pesanan.*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.pesanan.index') }}">
                     <i class="ti ti-receipt"></i>
                     <span class="nav-text">Pesanan Masuk</span>
