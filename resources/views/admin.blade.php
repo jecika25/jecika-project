@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'Admin Dashboard') - Nala Catering</title>
     
+    <!-- start css -->
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets-admin/images/favicon_io/favicon-32x32.png') }}">
     
@@ -24,11 +25,13 @@
     <link rel="stylesheet" href="{{ asset('assets-admin/css/style.css') }}">
     
     @yield('styles')
+    <!-- end css -->
 </head>
 <body>
     <!-- Mobile Overlay -->
     <div id="overlay" class="overlay"></div>
 
+    <!-- start header -->
     <!-- TOPBAR -->
     <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3 px-lg-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-3">
@@ -103,7 +106,9 @@
             </div>
         </div>
     </nav>
+    <!-- end header -->
 
+    <!-- start sidebar -->
     <!-- SIDEBAR -->
     <aside id="sidebar" class="sidebar">
         <!-- Logo Area -->
@@ -187,6 +192,7 @@
             </div>
         </div>
     </aside>
+    <!-- end sidebar -->
 
     <!-- MAIN CONTENT -->
     <main id="content" class="content">
@@ -226,6 +232,7 @@
             <!-- Dynamic Content -->
             @yield('content')
         </div>
+        <!-- end main content -->
 
         <!-- Footer -->
         <footer class="mt-5 pt-4 text-center text-muted border-top">
@@ -234,7 +241,9 @@
             </p>
         </footer>
     </main>
+    <!-- end footer -->
 
+    <!-- start js -->
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -273,5 +282,6 @@
     </script>
 
     @yield('scripts')
+    <!-- end js -->
 </body>
 </html>
