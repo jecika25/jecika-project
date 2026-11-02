@@ -9,6 +9,8 @@ class PaketCatering extends Model
 {
     use HasFactory;
 
+    use HasFactory;
+
     protected $table = 'paket_caterings';
 
     protected $fillable = [
@@ -21,6 +23,11 @@ class PaketCatering extends Model
         'status',
         'foto',
     ];
+    
+    public function menus()
+    {
+        return $this->hasMany(MenuCatering::class, 'kategori', 'nama_paket');
+    }
 
     /**
      * Format harga paket ke format Rupiah
