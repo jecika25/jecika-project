@@ -47,7 +47,7 @@
                         <p class="text-muted mb-0 small">Daftar pelanggan terdaftar untuk reservasi dan pemesanan Nala Catering.</p>
                     </div>
                     <div>
-                        <a href="{{ route('pelanggan.create') }}" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm px-3 py-2 fw-medium">
+                        <a href="{{ route('admin.pelanggan.create') }}" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm px-3 py-2">
                             <i class="ti ti-user-plus fs-5"></i>
                             <span>Tambah Pelanggan</span>
                         </a>
@@ -106,7 +106,7 @@
             <!-- SEARCH & FILTER -->
             <div class="card border-0 shadow-sm mb-4">
                 <div class="card-body p-3">
-                    <form action="{{ route('pelanggan.index') }}" method="GET" class="row g-2 align-items-center">
+                    <form action="{{ route('admin.pelanggan.index') }}" method="GET" class="row g-2 align-items-center">
                         <div class="col-12 col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text bg-white border-end-0 text-muted">
@@ -130,7 +130,7 @@
                                 <i class="ti ti-filter"></i> Filter
                             </button>
                             @if(request()->hasAny(['q', 'gender']))
-                                <a href="{{ route('pelanggan.index') }}" class="btn btn-outline-secondary" title="Reset">
+                                <a href="{{ route('admin.pelanggan.index') }}" class="btn btn-outline-secondary" title="Reset">
                                     <i class="ti ti-refresh"></i>
                                 </a>
                             @endif
@@ -194,7 +194,7 @@
                                     </td>
                                     <td class="text-end">
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('pelanggan.edit', $p->pelanggan_id) }}" class="btn btn-outline-primary" title="Edit">
+                                            <a href="{{ route('admin.pelanggan.edit', $p->pelanggan_id) }}" class="btn btn-outline-primary" title="Edit">
                                                 <i class="ti ti-pencil"></i>
                                             </a>
                                             <button type="button" class="btn btn-outline-danger" title="Hapus" data-bs-toggle="modal" data-bs-target="#delModal{{ $p->pelanggan_id }}">
@@ -215,7 +215,7 @@
                                                     </div>
                                                     <div class="modal-footer bg-light">
                                                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                        <form action="{{ route('pelanggan.destroy', $p->pelanggan_id) }}" method="POST">
+                                                        <form action="{{ route('admin.pelanggan.destroy', $p->pelanggan_id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
@@ -229,7 +229,6 @@
                             @empty
                                 <tr>
                                     <td colspan="7" class="text-center py-5 text-muted">
-                                        <i class="ti ti-users-minus fs-1 d-block mb-2 text-secondary"></i>
                                         Belum ada data pelanggan yang terdaftar.
                                     </td>
                                 </tr>
@@ -248,5 +247,6 @@
             </div>
 
         </div>
-        <!-- end main content -->
+    </main>
+    <!-- end main content -->
 @endsection

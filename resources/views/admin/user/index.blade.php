@@ -47,7 +47,7 @@
                         <p class="text-muted mb-0 small">Kelola data seluruh akun pengguna dan administrator sistem Nala Catering.</p>
                     </div>
                     <div>
-                        <a href="{{ route('user.create') }}" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm px-3 py-2 fw-medium">
+                        <a href="{{ route('admin.user.create') }}" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm px-3 py-2">
                             <i class="ti ti-plus fs-5"></i>
                             <span>Tambah User Baru</span>
                         </a>
@@ -117,9 +117,11 @@
                                     </td>
                                     <td class="text-end">
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('user.edit', $u->id) }}" class="btn btn-outline-primary" title="Edit User">
+                                            <!-- TOMBOL EDIT -->
+                                            <a href="{{ route('admin.user.edit', $u->id) }}" class="btn btn-outline-primary" title="Edit User">
                                                 <i class="ti ti-pencil"></i>
                                             </a>
+                                            <!-- TOMBOL HAPUS (Memicu Modal) -->
                                             <button type="button" class="btn btn-outline-danger" title="Hapus User" data-bs-toggle="modal" data-bs-target="#delModal{{ $u->id }}">
                                                 <i class="ti ti-trash"></i>
                                             </button>
@@ -138,7 +140,8 @@
                                                     </div>
                                                     <div class="modal-footer bg-light">
                                                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                        <form action="{{ route('user.destroy', $u->id) }}" method="POST">
+                                                        <!-- FORM ACTION DELETE -->
+                                                        <form action="{{ route('admin.user.destroy', $u->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
@@ -155,7 +158,7 @@
                                         <i class="ti ti-user-x fs-1 d-block mb-2 text-secondary"></i>
                                         Belum ada data user yang terdaftar.
                                         <div class="mt-2">
-                                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('admin.user.create') }}" class="btn btn-sm btn-primary">
                                                 <i class="ti ti-plus"></i> Tambah User Sekarang
                                             </a>
                                         </div>
@@ -176,5 +179,6 @@
             </div>
 
         </div>
-        <!-- end main content -->
+    </main>
+    <!-- end main content -->
 @endsection

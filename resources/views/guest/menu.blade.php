@@ -204,7 +204,7 @@
                         <div class="d-flex align-items-start gap-3">
                             <!-- Foto Menu -->
                             <div class="flex-shrink-0">
-                                <img src="{{ $menu->foto_url }}" alt="{{ $menu->nama_menu }}"
+                                <img src="{{ $menu->foto ? asset('uploads/menu/' . $menu->foto) : asset('assets-guest/img/hero.png') }}"
                                      class="rounded-3 shadow-sm border"
                                      style="width: 120px; height: 120px; object-fit: cover;">
                             </div>
@@ -218,7 +218,7 @@
                                         <h4 class="mb-0 mt-1 fw-bold text-dark" style="font-size: 18px;">{{ $menu->nama_menu }}</h4>
                                     </div>
                                     <div class="text-primary fw-bold fs-5 text-nowrap ms-2" style="font-family: 'Open Sans', sans-serif;">
-                                        {{ $menu->formatted_harga }}
+                                        Rp {{ number_format($menu->harga, 0, ',', '.') }}
                                     </div>
                                 </div>
                                 <p class="text-muted small mb-3 lh-base">

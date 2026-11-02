@@ -149,7 +149,7 @@
 
             <!-- Master 2: Pelanggan -->
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}" href="{{ route('pelanggan.index') }}">
+                <a class="nav-link {{ request()->routeIs('admin.pelanggan.*') ? 'active' : '' }}" href="{{ route('admin.pelanggan.index') }}">
                     <i class="ti ti-users"></i>
                     <span class="nav-text">2. Data Pelanggan</span>
                 </a>
@@ -165,7 +165,7 @@
 
             <!-- Master 4: Data User (Modul Pertemuan 7) -->
             <li class="nav-item">
-                <a class="nav-link {{ (request()->routeIs('user.*') || request()->routeIs('admin.user.*')) ? 'active' : '' }}" href="{{ route('user.index') }}">
+                <a class="nav-link {{ (request()->routeIs('user.*') || request()->routeIs('admin.user.*')) ? 'active' : '' }}" href="{{ route('admin.user.index') }}">
                     <i class="ti ti-user-shield"></i>
                     <span class="nav-text">4. Data User</span>
                 </a>
